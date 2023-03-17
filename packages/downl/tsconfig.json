@@ -8,8 +8,5 @@
 			"~/*": ["./src/*"]
 		}
 	},
-	"include": ["./src", "./typings"],
-	"references": [
-		{ "path": "./tsconfig.test.json" }
-	]
+	"include": ["./src", "./typings"]
 }
