@@ -33,7 +33,6 @@ importers:
       nock: ^13.3.0
       p-event: ^5.0.1
       path-exists: ^5.0.0
-      random-buffer: ^0.1.0
       vitest: ^0.29.3
     dependencies:
       archive-type: 4.0.0
@@ -56,7 +55,6 @@ importers:
       is-zip: 1.0.0
       nock: 13.3.0
       path-exists: 5.0.0
-      random-buffer: 0.1.0
       vitest: 0.29.3
     publishDirectory: dist
 
@@ -8338,13 +8336,6 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /random-buffer/0.1.0:
-    resolution: {integrity: sha512-j/YIba1yXL3HDce8aJc8xrltd6+DzTt2k/jkavfiuzUztR+tlndK3F9bKey6JhdzpAe5Q3D16cNiiTkryULypw==}
-    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
-    dependencies:
-      seed-random: 2.2.0
-    dev: true
-
   /rc/1.2.8:
     resolution: {integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==}
     hasBin: true
@@ -8816,10 +8807,6 @@ packages:
   /scoped-regex/3.0.0:
     resolution: {integrity: sha512-yEsN6TuxZhZ1Tl9iB81frTNS292m0I/IG7+w8lTvfcJQP2x3vnpOoevjBoE3Np5A6KnZM2+RtVenihj9t6NiYg==}
     engines: {node: '>=12'}
-    dev: true
-
-  /seed-random/2.2.0:
-    resolution: {integrity: sha512-34EQV6AAHQGhoc0tn/96a9Fsi6v2xdqe/dMUwljGRaFOzR3EgRmECvD0O8vi8X+/uQ50LGHfkNu/Eue5TPKZkQ==}
     dev: true
 
   /seek-bzip/1.0.6:
