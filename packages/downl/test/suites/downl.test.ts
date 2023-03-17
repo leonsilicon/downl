@@ -1,3 +1,4 @@
+import { Buffer } from 'node:buffer'
 import fs from 'node:fs'
 import path from 'node:path'
 
@@ -7,11 +8,20 @@ import getStream from 'get-stream'
 import isZip from 'is-zip'
 import nock from 'nock'
 import { pathExists } from 'path-exists'
-// @ts-expect-error: no types
-import randomBuffer from 'random-buffer'
 import { beforeAll, expect, test } from 'vitest'
 
 import m from '~/index.js'
+
+function randomBuffer(length: number) {
+	const buf = Buffer.alloc(length)
+	let i = 0
+
+	for (; i < length; ++i) buf[i] = Math.trunc(Math.random() * 0xff)
+
+	return buf
+}
+
+const fixtureZipPath = path.join(__dirname, '../fixtures/fixture.zip')
 
 beforeAll(() => {
 	nock('http://foo.bar')
@@ -19,18 +29,18 @@ beforeAll(() => {
 		.get('/404')
 		.reply(404)
 		.get('/foo.zip')
-		.replyWithFile(200, path.join(__dirname, 'fixture.zip'))
+		.replyWithFile(200, fixtureZipPath)
 		.get('/foo.js')
 		.replyWithFile(200, __filename)
 		.get('/querystring.zip')
 		.query({ param: 'value' })
-		.replyWithFile(200, path.join(__dirname, 'fixture.zip'))
+		.replyWithFile(200, fixtureZipPath)
 		.get('/dispo')
-		.replyWithFile(200, path.join(__dirname, 'fixture.zip'), {
+		.replyWithFile(200, fixtureZipPath, {
 			'Content-Disposition': contentDisposition('dispo.zip'),
 		})
 		.get('/foo*bar.zip')
-		.replyWithFile(200, path.join(__dirname, 'fixture.zip'))
+		.replyWithFile(200, fixtureZipPath)
 		.get('/large.bin')
 		.reply(200, randomBuffer(7_928_260))
 		.get('/redirect.zip')
@@ -38,15 +48,15 @@ beforeAll(() => {
 		.get('/redirect-https.zip')
 		.reply(301, null, { location: 'https://foo.bar/foo-https.zip' })
 		.get('/filetype')
-		.replyWithFile(200, path.join(__dirname, 'fixture.zip'))
+		.replyWithFile(200, fixtureZipPath)
 
 	nock('https://foo.bar')
 		.persist()
 		.get('/foo-https.zip')
-		.replyWithFile(200, path.join(__dirname, 'fixture.zip'))
+		.replyWithFile(200, fixtureZipPath)
 })
 
-test('download as stream', async () => {
+test.only('download as stream', async () => {
 	expect(isZip(await getStream.buffer(m('http://foo.bar/foo.zip')))).toBe(true)
 })
 

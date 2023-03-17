@@ -8,4 +8,7 @@ export default defineConfig({
 			'~test': join(import.meta.url, 'test'),
 		},
 	},
+	test: {
+		testTimeout: 1000,
+	},
 })

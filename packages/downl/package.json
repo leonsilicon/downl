@@ -42,7 +42,6 @@
     "is-zip": "^1.0.0",
     "nock": "^13.3.0",
     "path-exists": "^5.0.0",
-    "random-buffer": "^0.1.0",
     "vitest": "^0.29.3"
   },
   "publishConfig": {
