@@ -56,7 +56,7 @@ beforeAll(() => {
 		.replyWithFile(200, fixtureZipPath)
 })
 
-test.only('download as stream', async () => {
+test('download as stream', async () => {
 	expect(isZip(await getStream.buffer(m('http://foo.bar/foo.zip')))).toBe(true)
 })
 
@@ -95,10 +95,10 @@ test('extract file that is not compressed', async () => {
 })
 
 test('error on 404', async () => {
-	expect(
+	await expect(
 		async () => m('http://foo.bar/404'),
 		'Response code 404 (Not Found)'
-	).toThrow()
+	).rejects.toThrowError()
 })
 
 test('rename to valid filename', async () => {

@@ -87,7 +87,7 @@ export default function download(
 			: maybeOptions
 
 	const options = {
-		encoding: optionsArg?.encoding ?? 'binary',
+		responseType: 'buffer',
 		...optionsArg,
 		isStream: true,
 	} satisfies GotOptions
@@ -107,7 +107,13 @@ export default function download(
 
 	const promise = pEvent(stream, 'response')
 		.then(async (res) =>
-			Promise.all([getStream(stream, { encoding: options.encoding }), res])
+			Promise.all([
+				getStream(stream, {
+					// @ts-expect-error: 'buffer' is necessary
+					encoding: optionsArg?.encoding ?? 'buffer',
+				}),
+				res,
+			])
 		)
 		.then(async (result) => {
 			const [data, res] = result
