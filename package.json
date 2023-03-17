@@ -1,0 +1,11 @@
+{
+	"name": "@downl/monorepo",
+	"scripts": {
+		"prepare": "lionconfig"
+	},
+	"devDependencies": {
+		"@types/node": "^18.15.3",
+		"lionconfig": "^2.3.2",
+		"typescript": "^5.0.2"
+	}
+}
