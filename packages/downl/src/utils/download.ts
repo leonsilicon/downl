@@ -16,6 +16,8 @@ import got, {
 	type Request,
 	type Response,
 } from 'got'
+import omit from 'just-omit'
+import pick from 'just-pick'
 import makeDir from 'make-dir'
 import { pEvent } from 'p-event'
 
@@ -90,7 +92,18 @@ export default function download(
 		isStream: true,
 	} satisfies GotOptions
 
-	const stream = got.stream(uri, options)
+	const gotOptions = omit(options, [
+		'extract',
+		'filename',
+		'filter',
+		'map',
+		'plugins',
+		'strip',
+	])
+
+	const decompressOptions = pick(options, ['filter', 'map', 'plugins', 'strip'])
+
+	const stream = got.stream(uri, gotOptions)
 
 	const promise = pEvent(stream, 'response')
 		.then(async (res) =>
@@ -101,7 +114,7 @@ export default function download(
 
 			if (!destination) {
 				return options.extract && archiveType(data)
-					? decompress(data, options)
+					? decompress(data, decompressOptions)
 					: data
 			}
 
@@ -110,7 +123,7 @@ export default function download(
 			const outputFilepath = path.join(destination, filename)
 
 			if (options.extract && archiveType(data)) {
-				return decompress(data, path.dirname(outputFilepath), options)
+				return decompress(data, path.dirname(outputFilepath), decompressOptions)
 			}
 
 			return makeDir(path.dirname(outputFilepath))

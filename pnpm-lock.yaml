@@ -27,11 +27,12 @@ importers:
       get-stream: ^6.0.1
       got: ^12.6.0
       is-zip: ^1.0.0
+      just-omit: ^2.2.0
+      just-pick: ^4.2.0
       make-dir: ^3.1.0
       nock: ^13.3.0
       p-event: ^5.0.1
       path-exists: ^5.0.0
-      pify: ^6.1.0
       random-buffer: ^0.1.0
       vitest: ^0.29.3
     dependencies:
@@ -43,9 +44,10 @@ importers:
       filenamify: 5.1.1
       get-stream: 6.0.1
       got: 12.6.0
+      just-omit: 2.2.0
+      just-pick: 4.2.0
       make-dir: 3.1.0
       p-event: 5.0.1
-      pify: 6.1.0
     devDependencies:
       '@types/content-disposition': 0.5.5
       '@types/decompress': 4.2.4
@@ -6469,6 +6471,14 @@ packages:
     engines: {'0': node >= 0.2.0}
     dev: true
 
+  /just-omit/2.2.0:
+    resolution: {integrity: sha512-Js7+HxDOGcB3RhI38Mird/RgyMf3t0DAJFda1QWqqlAKTa36NeSYIufJXxrZUbysFTRcTOFcoMCiFK5FwCoI7Q==}
+    dev: false
+
+  /just-pick/4.2.0:
+    resolution: {integrity: sha512-m6bi0P/gFq5GEQJGYfHFsdod6fogViNIhsKbPBYavqF9SKFfMKPz7kf6ROL2PblkOdaib9vN/wJ7VXhCJre5Hw==}
+    dev: false
+
   /keyv/4.5.2:
     resolution: {integrity: sha512-5MHbFaKn8cNSmVW7BYnijeAVlE4cYA/SVkifVgrh7yotnfhKmjuXpDKjrABLnT0SfHWV21P8ow07OGfRrNDg8g==}
     dependencies:
@@ -8098,11 +8108,6 @@ packages:
   /pify/3.0.0:
     resolution: {integrity: sha512-C3FsVNH1udSEX48gGX1xfvwTWfsYWj5U+8/uK15BGzIGrKoUpghX8hWZwa/OFnakBiiVNmBvemTJR5mcy7iPcg==}
     engines: {node: '>=4'}
-    dev: false
-
-  /pify/6.1.0:
-    resolution: {integrity: sha512-KocF8ve28eFjjuBKKGvzOBGzG8ew2OqOOSxTTZhirkzH7h3BI1vyzqlR0qbfcDBve1Yzo3FVlWUAtCRrbVN8Fw==}
-    engines: {node: '>=14.16'}
     dev: false
 
   /pinkie-promise/2.0.1:
