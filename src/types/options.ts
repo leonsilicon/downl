@@ -8,7 +8,7 @@ export interface DownloadOptions extends GotOptions {
 	 *
 	 * @default false
 	 */
-	extract?: false | DecompressOptions
+	extract?: boolean | DecompressOptions
 
 	/**
 	 * Name of the saved file.

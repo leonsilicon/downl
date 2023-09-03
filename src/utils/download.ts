@@ -102,7 +102,7 @@ export default function download(
 
 			if (!destination) {
 				return options.extract && archiveType(data)
-					? decompress(data, options.extract)
+					? decompress(data, options.extract === true ? {} : options.extract)
 					: data;
 			}
 
@@ -111,7 +111,11 @@ export default function download(
 			const outputFilepath = path.join(destination, filename);
 
 			if (options.extract && archiveType(data)) {
-				return decompress(data, path.dirname(outputFilepath), options.extract);
+				return decompress(
+					data,
+					path.dirname(outputFilepath),
+					options.extract === true ? {} : options.extract
+				);
 			}
 
 			return makeDir(path.dirname(outputFilepath))
