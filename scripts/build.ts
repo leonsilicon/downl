@@ -6,6 +6,6 @@ await createPackageBuilder(import.meta, {
 })
   .cleanDistFolder()
   .tsc()
-  .generateBundles({ commonjs: false, typeDefinitions: true })
+  .generateBundles({ commonjs: true, typeDefinitions: true })
   .copyPackageFiles()
   .build();
