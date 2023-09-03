@@ -12,7 +12,7 @@ npm install downl
 
 ## Usage
 
-Mostly the same API as <https://github.com/kevva/download> except for the `extract` option (which takes an object with the arguments to pass to <https://github.com/sindresorhus/decompress> instead of a boolean).
+Mostly the same API as <https://github.com/kevva/download> except for the `extract` option (which takes an object with the options to pass to <https://github.com/kevva/decompress> instead of a boolean).
 
 ```typescript
 import download from 'downl';
@@ -29,4 +29,3 @@ await Promise.all([
     'cats.com/dancing.gif'
 ].map(url => download(url, 'dist')));
 ```
-
