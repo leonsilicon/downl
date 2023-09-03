@@ -64,8 +64,8 @@ importers:
         specifier: ^3.1.1
         version: 3.1.1(typescript@5.2.2)
       nock:
-        specifier: ^13.3.0
-        version: 13.3.0
+        specifier: ^13.3.3
+        version: 13.3.3
       path-exists:
         specifier: ^5.0.0
         version: 5.0.0
@@ -6229,6 +6229,18 @@ packages:
 
   /nock@13.3.0:
     resolution: {integrity: sha512-HHqYQ6mBeiMc+N038w8LkMpDCRquCHWeNmN3v6645P3NhN2+qXOBqvPqo7Rt1VyCMzKhJ733wZqw5B7cQVFNPg==}
+    engines: {node: '>= 10.13'}
+    dependencies:
+      debug: 4.3.4
+      json-stringify-safe: 5.0.1
+      lodash: 4.17.21
+      propagate: 2.0.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /nock@13.3.3:
+    resolution: {integrity: sha512-z+KUlILy9SK/RjpeXDiDUEAq4T94ADPHE3qaRkf66mpEhzc/ytOMm3Bwdrbq6k1tMWkbdujiKim3G2tfQARuJw==}
     engines: {node: '>= 10.13'}
     dependencies:
       debug: 4.3.4

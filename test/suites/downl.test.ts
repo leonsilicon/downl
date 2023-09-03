@@ -4,13 +4,12 @@ import path from 'node:path'
 
 import contentDisposition from 'content-disposition'
 import getStream from 'get-stream'
-// @ts-expect-error: no types
 import isZip from 'is-zip'
 import nock from 'nock'
 import { pathExists } from 'path-exists'
 import { beforeAll, expect, test } from 'vitest'
 
-import m from '~/index.js'
+import m from '../../src/index.js'
 
 function randomBuffer(length: number) {
 	const buf = Buffer.alloc(length)
