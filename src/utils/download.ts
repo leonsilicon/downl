@@ -5,7 +5,7 @@ import path from 'node:path';
 // @ts-expect-error: no typings
 import archiveType from 'archive-type';
 import contentDisposition from 'content-disposition';
-import decompress from 'decompress';
+import decompress from 'decomp';
 // @ts-expect-error: no typings
 import extName from 'ext-name';
 import { fileTypeFromBuffer } from 'file-type';

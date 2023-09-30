@@ -1,4 +1,4 @@
-import { type DecompressOptions } from 'decompress'
+import { type DecompressOptions } from 'decomp'
 import { type OptionsInit as GotOptions } from 'got'
 
 export interface DownloadOptions extends GotOptions {
