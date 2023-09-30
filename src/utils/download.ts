@@ -5,6 +5,7 @@ import path from 'node:path';
 // @ts-expect-error: no typings
 import archiveType from 'archive-type';
 import contentDisposition from 'content-disposition';
+// @ts-expect-error: broken types
 import decompress from 'decomp';
 // @ts-expect-error: no typings
 import extName from 'ext-name';
